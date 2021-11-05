@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>DrivenEats</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header>
+        <p>DrivenEats</p>
+        <p>Sua comida em 6 minutos</p>
+    </header>
+    <main>
+        <span>Primeiro, seu prato</span>
+        <section class="scroll dishes">
+            <article class="item" onclick="selectDish(this)">
+                <img src="assets/dish1.jpg" />
+                <span>Strogonoff</span>
+                <span>Arroz e Strogonoff</span>
+                <span>R$ 21,10</span>
+                <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+            </article>
+            <article class="item" onclick="selectDish(this)">
+                <img src="assets/dish2.jpg" />
+                <span>Lasanha</span>
+                <span>Lasanha à bolonhesa</span>
+                <span>R$ 15,20</span>
+                <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+            </article>
+            <article class="item" onclick="selectDish(this)">
+                <img src="assets/dish3.jpg" />
+                <span>Linguiça</span>
+                <span>Um pouco de batata, um pouco de salada</span>
+                <span>R$ 14,30</span>
+                <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+            </article>
+        </section>
+        <span>Agora, sua bebida</span>
+        <section class="scroll drinks">
+            <article class="item" onclick="selectDrink(this)">
+                <img src="assets/drink1.jpg" />
+                <span>Água mineral</span>
+                <span>500ml</span>
+                <span>R$ 3,40</span>
+                <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+            </article>
+            <article class="item" onclick="selectDrink(this)">
+                <img src="assets/drink2.jpg" />
+                <span>Suco de laranja</span>
+                <span>500ml</span>
+                <span>R$ 5,50</span>
+                <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+            </article>
+            <article class="item" onclick="selectDrink(this)">
+                <img src="assets/drink3.jpg" />
+                <span>Heineken</span>
+                <span>600ml</span>
+                <span>R$ 7,60</span>
+                <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+            </article>
+        </section>
+        <span>Por fim, sua sobremesa</span>
+        <section class="scroll deserts">
+            <article id="desert1" class="item" onclick="selectDesert(this)">
+                <img src="assets/desert1.jpg" />
+                <span>Tigela de Açaí</span>
+                <span>Puro, 500ml</span>
+                <span>R$ 10,70</span>
+                <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+            </article>
+            <article id="desert2" class="item" onclick="selectDesert(this)">
+                <img src="assets/desert2.jpg" />
+                <span>Tigela de sorvete</span>
+                <span>Morango, três bolas</span>
+                <span>R$ 11,80</span>
+                <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+            </article>
+            <article id="desert3" class="item" onclick="selectDesert(this)">
+                <img src="assets/desert3.jpg" />
+                <span>Milkshake</span>
+                <span>Sabor chocolate, 500ml</span>
+                <span>R$ 18,90</span>
+                <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+            </article>
+        </section>
+        <div class="finish-order">
+            <div onclick="finish()">
+                <span>Selecione os 3 itens para fechar o pedido</span>
+            </div>
+        </div>
+        <div id="confirm-order" class="confirm-order display-none">
+            <div class="confirm-order-box">
+                <span class="text-align-center bold">Confirme seu pedido</span>
+                <div class="order-item">
+                    <span id="selected-dish">Prato</span>
+                    <span id="selected-dish-price">preço</span>
+                </div>
+                <div class="order-item">
+                    <span id="selected-drink">Bebida</span>
+                    <span id="selected-drink-price">preço</span>
+                </div>
+                <div class="order-item">
+                    <span id="selected-desert">Sobremesa</span>
+                    <span id="selected-desert-price">preço</span>
+                </div>
+                <div class="order-item">
+                    <span class="bold">TOTAL</span>
+                    <span id="total-price">preço</span>
+                </div>
+
+                <span class="text-align-center" onclick="whatsappMessage()">Tudo certo, pode pedir!</span>
+                <span id="cancel" class="text-align-center cursor-pointer" onclick="cancel()">Cancelar</span>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
