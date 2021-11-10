@@ -74,21 +74,21 @@
         </section>
         <span>Por fim, sua sobremesa</span>
         <section class="scroll deserts">
-            <article id="desert1" class="item" onclick="selectDesert(this)">
+            <article class="item" onclick="selectDesert(this)">
                 <img src="assets/desert1.jpg" />
                 <span>Tigela de Açaí</span>
                 <span>Puro, 500ml</span>
                 <span>R$ 10,70</span>
                 <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
             </article>
-            <article id="desert2" class="item" onclick="selectDesert(this)">
+            <article class="item" onclick="selectDesert(this)">
                 <img src="assets/desert2.jpg" />
                 <span>Tigela de sorvete</span>
                 <span>Morango, três bolas</span>
                 <span>R$ 11,80</span>
                 <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
             </article>
-            <article id="desert3" class="item" onclick="selectDesert(this)">
+            <article class="item" onclick="selectDesert(this)">
                 <img src="assets/desert3.jpg" />
                 <span>Milkshake</span>
                 <span>Sabor chocolate, 500ml</span>
@@ -103,7 +103,7 @@
         </div>
         <div id="confirm-order" class="confirm-order display-none">
             <div class="confirm-order-box">
-                <span class="text-align-center bold">Confirme seu pedido</span>
+                <strong class="text-align-center">Confirme seu pedido</strong>
                 <div class="order-item">
                     <span id="selected-dish">Prato</span>
                     <span id="selected-dish-price">preço</span>
@@ -116,8 +116,8 @@
                     <span id="selected-desert">Sobremesa</span>
                     <span id="selected-desert-price">preço</span>
                 </div>
-                <div class="order-item">
-                    <span class="bold">TOTAL</span>
+                <div class="order-item" id="total">
+                    <strong>total</strong>
                     <span id="total-price">preço</span>
                 </div>
 

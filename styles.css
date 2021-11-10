@@ -30,10 +30,7 @@ header > p {
 }
 
 header > p:first-child {
-  font-family: Righteous;
-  font-size: 44px;
-  font-weight: 400;
-  line-height: 55px;
+  font: 400 44px/55px Righteous;
   letter-spacing: -0.012em;
 
   color: white;
@@ -42,9 +39,8 @@ header > p:first-child {
 }
 
 header > p:last-child {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 21px;
+  font: 400 18px/21px Righteous;
+
   letter-spacing: 0em;
 
   color: white;
@@ -52,7 +48,6 @@ header > p:last-child {
 
 main {
   width: 100%;
-  height: 1000px;
 
   position: relative;
 
@@ -61,10 +56,8 @@ main {
 
 main > span {
   display: block;
-  font-family: Righteous;
-  font-size: 26px;
-  font-weight: 400;
-  line-height: 32px;
+
+  font: 400 26px/32px Righteous;
   letter-spacing: 0.018em;
 
   margin: 52px 0 17px 19px;
@@ -87,12 +80,12 @@ main > span:first-child {
   overflow-x: scroll;
 }
 
-.scroll::-webkit-scrollbar {
-  display: none;
+.deserts {
+  margin-bottom: 110px;
 }
 
-.deserts {
-  margin-bottom: 200px;
+.scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .item {
@@ -101,19 +94,19 @@ main > span:first-child {
   height: 216px;
 
   padding: 14px;
+  border-radius: 9px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 
   position: relative;
 
-  background-color: #ffffff;
-
-  border-radius: 9px;
-
-  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
-
+  
   cursor: pointer;
+  
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
 }
 
 .item > img {
@@ -127,39 +120,28 @@ main > span:first-child {
   display: block;
 }
 
-.item > span:nth-child(2) {
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 19px;
+.item > span {
   letter-spacing: 0em;
   text-align: left;
+}
+
+.item > span:nth-child(2) {
+  font: 700 16px/19px roboto;
 
   color: black;
 }
 
 .item > span:nth-child(3) {
-  font-family: Roboto;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 18px;
-  letter-spacing: 0em;
-  text-align: left;
+  font: 300 15px/18px roboto;
 }
 
 .item > span:nth-child(4) {
-  font-family: Roboto;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 19px;
-  letter-spacing: 0em;
-  text-align: left;
+  font: 400 16px/19px roboto;
 }
 
 .item > ion-icon {
   font-size: 15.44px;
+
   color: #32b72f;
 
   position: absolute;
@@ -168,9 +150,10 @@ main > span:first-child {
 }
 
 .finish-order {
-  background-color: #ffffff;
   width: 100%;
   height: 92px;
+  
+  margin: 0;
 
   position: fixed;
   bottom: 0;
@@ -179,7 +162,7 @@ main > span:first-child {
   justify-content: center;
   align-items: center;
 
-  margin: 0;
+  background-color: #ffffff;
 }
 
 .finish-order div {
@@ -188,17 +171,16 @@ main > span:first-child {
 
   border-radius: 50px;
 
-  background-color: #cbcbcb;
-
+  
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: #cbcbcb;
 }
 
 .finish-order div span {
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 23px;
+  font: 400 20px/23px roboto;
   letter-spacing: 0.018em;
   text-align: center;
 
@@ -215,57 +197,55 @@ main > span:first-child {
   border: 5px solid #32b72f;
 }
 
-/* .finished {
-      background-color:  #32B72F;
-  } */
-
 .confirm-order {
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
 
+  
   position: fixed;
   top: 0;
   left: 0;
   z-index: 3;
-
+  
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .confirm-order-box {
   width: 377px;
   height: 353px;
 
-  z-index: 2;
-
-  background-color: #50d074;
-
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+  padding: 21px;
   border-radius: 9px;
-
+  
+  
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
+  z-index: 2;
 
-  padding: 21px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+  background-color: #50d074;
 }
 
-.confirm-order-box span {
-  color: white;
-
-  font-size: 22px;
-  line-height: 26px;
+.confirm-order-box span, .confirm-order-box strong  {
+  font: 22px/26px roboto;
   letter-spacing: 0.018em;
+
+  color: white;
+}
+
+.confirm-order-box strong  {
+  font-weight: bold;
 }
 
 .text-align-center {
   text-align: center;
-}
-
-.bold {
-  font-weight: bold;
 }
 
 .order-item {
@@ -273,17 +253,22 @@ main > span:first-child {
   justify-content: space-between;
 }
 
-.confirm-order-box > span:nth-child(6) {
-  color: #50d074;
-  background-color: white;
+#total {
+  text-transform: uppercase;
+}
 
-  padding: 15px 0;
+.confirm-order-box > span:nth-child(6) {
   width: 333px;
   height: 52px;
 
+  padding: 15px 0;
   border-radius: 100px;
 
+  
   cursor: pointer;
+
+  color: #50d074;
+  background-color: white;
 }
 
 .display-none {

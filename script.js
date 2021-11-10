@@ -8,44 +8,38 @@ let selectedDish = "";
 let selectedDrink = "";
 let selectedDesert = "";
 
-function calcprice(clicked) {
-    a = clicked.children[3].innerText;
-    arr = a.split(" ");
-    price = parseFloat(arr[1].replace(",", "."));
+function calcPrice(clickedElement) {
+    innerString = clickedElement.children[3].innerText;
+    splitPrice = innerString.split(" ");
+    price = parseFloat(splitPrice[1].replace(",", "."));
 
     return price;
 }
 
-function selectDish(clicked) {
-    currentPrice = calcprice(clicked);
-    console.log("preço: " + currentPrice);
-    console.log("previousDishPrice: " + previousDishPrice);
+function selectDish(clickedElement) {
+    currentPrice = calcPrice(clickedElement);
     if (document.querySelector(".dishes .selected") !== null) {
-        // tem alguém já clicado
 
-        if (clicked == document.querySelector(".dishes .selected")) {
-            // é o mesmo elemento   subtrair o valor anterior
-            clicked.classList.toggle("selected");
-            clicked.querySelector("ion-icon").classList.toggle("display-none");
-        } else {
-            // elemento diferente   subtrair o valor anterior
-            document
-                .querySelector(".dishes .selected ion-icon")
-                .classList.toggle("display-none");
+        if (clickedElement == document.querySelector(".dishes .selected")) {
+            clickedElement.classList.toggle("selected");
+            clickedElement.querySelector("ion-icon").classList.toggle("display-none");
+        }
+        else {
+            document.querySelector(".dishes .selected ion-icon").classList.toggle("display-none");
             document.querySelector(".dishes .selected").classList.toggle("selected");
 
-            clicked.classList.toggle("selected");
-            clicked.querySelector("ion-icon").classList.toggle("display-none");
+            clickedElement.classList.toggle("selected");
+            clickedElement.querySelector("ion-icon").classList.toggle("display-none");
 
             total += currentPrice;
             totalSelected++;
         }
         total -= previousDishPrice;
         totalSelected--;
-    } else {
-        // não tem ninguém clicado
-        clicked.classList.toggle("selected");
-        clicked.querySelector("ion-icon").classList.toggle("display-none");
+    }
+    else {
+        clickedElement.classList.toggle("selected");
+        clickedElement.querySelector("ion-icon").classList.toggle("display-none");
 
         total += currentPrice;
         totalSelected++;
@@ -53,48 +47,38 @@ function selectDish(clicked) {
 
     previousDishPrice = currentPrice;
     total = Math.round(total * 100) / 100;
-    console.log(`total: ${total}`);
-    console.log(`totalSelected: ${totalSelected}`);
 
-    selectedDish = clicked.children[1].innerText;
-    document.getElementById("selected-dish").innerHTML =
-        clicked.children[1].innerHTML;
-    document.getElementById("selected-dish-price").innerHTML =
-        "R$ " + price.toFixed(2).replace(".", ",");
+    selectedDish = clickedElement.children[1].innerText;
+    document.getElementById("selected-dish").innerHTML = clickedElement.children[1].innerHTML;
+    document.getElementById("selected-dish-price").innerHTML = "R$ " + price.toFixed(2).replace(".", ",");
 
-    isItFinished();
+    finishedOrderCheck();
 }
 
-function selectDrink(clicked) {
-    currentPrice = calcprice(clicked);
-    console.log("preço: " + currentPrice);
-    console.log("previousDrinkPrice: " + previousDrinkPrice);
+function selectDrink(clickedElement) {
+    currentPrice = calcPrice(clickedElement);
     if (document.querySelector(".drinks .selected") !== null) {
-        // tem alguém já clicado
 
-        if (clicked == document.querySelector(".drinks .selected")) {
-            // é o mesmo elemento   subtrair o valor anterior
-            clicked.classList.toggle("selected");
-            clicked.querySelector("ion-icon").classList.toggle("display-none");
-        } else {
-            // elemento diferente   subtrair o valor anterior
-            document
-                .querySelector(".drinks .selected ion-icon")
-                .classList.toggle("display-none");
+        if (clickedElement == document.querySelector(".drinks .selected")) {
+            clickedElement.classList.toggle("selected");
+            clickedElement.querySelector("ion-icon").classList.toggle("display-none");
+        }
+        else {
+            document.querySelector(".drinks .selected ion-icon").classList.toggle("display-none");
             document.querySelector(".drinks .selected").classList.toggle("selected");
 
-            clicked.classList.toggle("selected");
-            clicked.querySelector("ion-icon").classList.toggle("display-none");
+            clickedElement.classList.toggle("selected");
+            clickedElement.querySelector("ion-icon").classList.toggle("display-none");
 
             total += currentPrice;
             totalSelected++;
         }
         total -= previousDrinkPrice;
         totalSelected--;
-    } else {
-        // não tem ninguém clicado
-        clicked.classList.toggle("selected");
-        clicked.querySelector("ion-icon").classList.toggle("display-none");
+    }
+    else {
+        clickedElement.classList.toggle("selected");
+        clickedElement.querySelector("ion-icon").classList.toggle("display-none");
 
         total += currentPrice;
         totalSelected++;
@@ -102,47 +86,39 @@ function selectDrink(clicked) {
 
     previousDrinkPrice = currentPrice;
     total = Math.round(total * 100) / 100;
-    console.log(`total: ${total}`);
-    console.log(`totalSelected: ${totalSelected}`);
-    selectedDrink = clicked.children[1].innerText;
-    document.getElementById("selected-drink").innerHTML =
-        clicked.children[1].innerHTML;
-    document.getElementById("selected-drink-price").innerHTML =
-        "R$ " + price.toFixed(2).replace(".", ",");
 
-    isItFinished();
+    selectedDrink = clickedElement.children[1].innerText;
+
+    document.getElementById("selected-drink").innerHTML = clickedElement.children[1].innerHTML;
+    document.getElementById("selected-drink-price").innerHTML = "R$ " + price.toFixed(2).replace(".", ",");
+
+    finishedOrderCheck();
 }
 
-function selectDesert(clicked) {
-    currentPrice = calcprice(clicked);
-    console.log("preço: " + currentPrice);
-    console.log("previousDesertPrice: " + previousDesertPrice);
+function selectDesert(clickedElement) {
+    currentPrice = calcPrice(clickedElement);
     if (document.querySelector(".deserts .selected") !== null) {
-        // tem alguém já clicado
 
-        if (clicked == document.querySelector(".deserts .selected")) {
-            // é o mesmo elemento   subtrair o valor anterior
-            clicked.classList.toggle("selected");
-            clicked.querySelector("ion-icon").classList.toggle("display-none");
-        } else {
-            // elemento diferente   subtrair o valor anterior
-            document
-                .querySelector(".deserts .selected ion-icon")
-                .classList.toggle("display-none");
+        if (clickedElement == document.querySelector(".deserts .selected")) {
+            clickedElement.classList.toggle("selected");
+            clickedElement.querySelector("ion-icon").classList.toggle("display-none");
+        }
+        else {
+            document.querySelector(".deserts .selected ion-icon").classList.toggle("display-none");
             document.querySelector(".deserts .selected").classList.toggle("selected");
 
-            clicked.classList.toggle("selected");
-            clicked.querySelector("ion-icon").classList.toggle("display-none");
+            clickedElement.classList.toggle("selected");
+            clickedElement.querySelector("ion-icon").classList.toggle("display-none");
 
             total += currentPrice;
             totalSelected++;
         }
         total -= previousDesertPrice;
         totalSelected--;
-    } else {
-        // não tem ninguém clicado
-        clicked.classList.toggle("selected");
-        clicked.querySelector("ion-icon").classList.toggle("display-none");
+    }
+    else {
+        clickedElement.classList.toggle("selected");
+        clickedElement.querySelector("ion-icon").classList.toggle("display-none");
 
         total += currentPrice;
         totalSelected++;
@@ -150,40 +126,30 @@ function selectDesert(clicked) {
 
     previousDesertPrice = currentPrice;
     total = Math.round(total * 100) / 100;
-    console.log(`total: ${total}`);
-    console.log(`totalSelected: ${totalSelected}`);
-    selectedDesert = clicked.children[1].innerText;
+    selectedDesert = clickedElement.children[1].innerText;
 
-    document.getElementById("selected-desert").innerHTML =
-        clicked.children[1].innerHTML;
-    document.getElementById("selected-desert-price").innerHTML =
-        "R$ " + price.toFixed(2).replace(".", ",");
+    document.getElementById("selected-desert").innerHTML = clickedElement.children[1].innerHTML;
+    document.getElementById("selected-desert-price").innerHTML = "R$ " + price.toFixed(2).replace(".", ",");
 
-    isItFinished();
+    finishedOrderCheck();
 }
 
-function isItFinished() {
+function finishedOrderCheck() {
+
     if (totalSelected == 3) {
-        document.querySelector(".finish-order div span").innerText =
-            "Fechar pedido";
-        document.querySelector(".finish-order div").style.backgroundColor =
-            "#32B72F";
-        document
-            .querySelector(".finish-order div")
-            .classList.toggle("cursor-pointer");
-        // tentei evitar inline styling mas quando usei classList.toggle(".finished") o html deu preferência para o style .finish-order div   OBS: Deixei comentado o estilo .finished no final do .css
-    } else {
-        // se não, remover os estilos adicionados
-        document.querySelector(".finish-order div span").innerText =
-            "Selecione os 3 itens para fechar o pedido";
-        document.querySelector(".finish-order div").style.backgroundColor =
-            "#CBCBCB";
+        document.querySelector(".finish-order div span").innerText = "Fechar pedido";
+        document.querySelector(".finish-order div").style.backgroundColor = "#32B72F";
+        document.querySelector(".finish-order div").classList.toggle("cursor-pointer");
     }
-    document.getElementById("total-price").innerHTML =
-        "R$ " + total.toFixed(2).replace(".", ",");
+    else {
+        document.querySelector(".finish-order div span").innerText = "Selecione os 3 itens para fechar o pedido";
+        document.querySelector(".finish-order div").style.backgroundColor = "#CBCBCB";
+    }
+    document.getElementById("total-price").innerHTML = "R$ " + total.toFixed(2).replace(".", ",");
 }
 
 function finish() {
+
     if (totalSelected == 3) {
         document.getElementById("confirm-order").classList.toggle("display-none");
     }
